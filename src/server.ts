@@ -1,14 +1,14 @@
+import 'reflect-metadata';
 import express from 'express';
 
+import './database';
+import { router } from './routes';
+
 const app = express();
+const host = 'localhost';
 const port = 3000;
 
-app.get('/test', (request, response) => {
-  return response.json({ message: 'Olá NLW Togheter' })
-})
+app.use(express.json());
+app.use(router);
 
-app.post('/test-post', (request, response) => {
-  return response.json({ message: 'Olá NLW Togheter method: post' })
-})
-
-app.listen(port, () => console.log(`Server on: http://localhost:${port}`))
+app.listen(port, host, () => console.log(`Server on: http://${host}:${port}`))

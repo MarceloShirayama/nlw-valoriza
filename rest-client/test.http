@@ -1,9 +1,0 @@
-@url_base=http://localhost:3000
-@path-get=test
-@path-post=test-post
-
-### route get
-GET {{url_base}}/{{path-get}}
-
-### route post
-POST {{url_base}}/{{path-post}}

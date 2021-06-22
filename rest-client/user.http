@@ -1,0 +1,12 @@
+@url_base=http://localhost:3000
+@path=users
+
+### Create user
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "name": "Marcelo",
+  "email": "marcelo@teste.com",
+  "admin": true
+}
