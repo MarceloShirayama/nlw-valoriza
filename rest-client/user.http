@@ -10,3 +10,22 @@ Content-Type: application/json
   "email": "marcelo@teste.com",
   "admin": true
 }
+
+### Create user with same email -> "error": "User already exists!"
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "name": "Marcelo",
+  "email": "marcelo@teste.com",
+  "admin": true
+}
+
+### Create user without email -> "error": "Incorrect email!"
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "name": "Marcelo",
+  "admin": true
+}
