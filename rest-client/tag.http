@@ -1,0 +1,26 @@
+@url_base=http://localhost:3000
+@path=tags
+
+### Create tag
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "name": "Inspiração"
+}
+
+### Create tag with same tag name -> "error": "Tag already exists!"
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "name": "Inspiração"
+}
+
+### Create tag without tag name -> "error": "Incorrect tag name!"
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+
+}
