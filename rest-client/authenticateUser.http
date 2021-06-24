@@ -1,0 +1,15 @@
+@url_base=http://localhost:3000
+@path=login
+
+# User data
+@user_email=marcelo@teste.com
+@user_password=1234
+
+### Generate token
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "email": "{{user_email}}",
+  "password": "{{user_password}}"
+}
