@@ -1,14 +1,21 @@
 @url_base=http://localhost:3000
 @path=users
 
+# User data
+@user_name=Marcelo
+@user_email=marcelo@teste.com
+@user_password=1234
+@user_admin=true
+
 ### Create user
 POST {{url_base}}/{{path}}
 Content-Type: application/json
 
 {
-  "name": "Marcelo",
-  "email": "marcelo@teste.com",
-  "admin": true
+  "name": "{{user_name}}",
+  "email": "{{user_email}}",
+  "password": "{{user_password}}",
+  "admin": {{user_admin}}
 }
 
 ### Create user with same email -> "error": "User already exists!"
@@ -16,9 +23,10 @@ POST {{url_base}}/{{path}}
 Content-Type: application/json
 
 {
-  "name": "Marcelo",
-  "email": "marcelo@teste.com",
-  "admin": true
+  "name": "{{user_name}}",
+  "email": "{{user_email}}",
+  "password": "{{user_password}}",
+  "admin": {{user_admin}}
 }
 
 ### Create user without email -> "error": "Incorrect email!"
@@ -26,6 +34,7 @@ POST {{url_base}}/{{path}}
 Content-Type: application/json
 
 {
-  "name": "Marcelo",
-  "admin": true
+  "name": "{{user_name}}",
+  "password": "{{user_password}}",
+  "admin": {{user_admin}}
 }
