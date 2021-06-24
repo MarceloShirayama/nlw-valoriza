@@ -1,0 +1,42 @@
+@url_base=http://localhost:3000
+@path=compliments
+
+# User data
+@tag_id=a873e49d-7cbd-40b3-a162-62ec7fdf2154
+@user_sender=1b828c6f-de6b-4d41-9efa-a1c39aa627dd
+@user_receiver=6c477071-6911-480b-bc34-3409c5aa0f2b
+@message=Obrigado pela ajuda na comunidade :)
+@user_invalid=usuarionaovalidoounaoautenticado
+
+### Create compliment
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "tag_id": "{{tag_id}}",
+  "user_sender": "{{user_sender}}",
+  "user_receiver": "{{user_receiver}}",
+  "message": "{{message}}"
+}
+
+### register compliment for himself -> "error": "A user is not allowed to register a compliment for himself!"
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "tag_id": "{{tag_id}}",
+  "user_sender": "{{user_sender}}",
+  "user_receiver": "{{user_sender}}",
+  "message": "{{message}}"
+}
+
+### register compliment for invalid user -> "error": "User receiver do not exists!"
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "tag_id": "{{tag_id}}",
+  "user_sender": "{{user_sender}}",
+  "user_receiver": "{{user_invalid}}",
+  "message": "{{message}}"
+}

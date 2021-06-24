@@ -15,7 +15,7 @@ export class User {
   email!: string;
 
   @Column()
-  admin!: string;
+  admin!: boolean;
 
   @Column()
   password!: string;

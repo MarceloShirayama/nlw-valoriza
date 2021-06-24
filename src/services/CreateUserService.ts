@@ -5,12 +5,12 @@ import { UsersRepositories } from "../repositories/UsersRepositories";
 interface IUserRequest {
   name: string;
   email: string;
-  admin: string;
+  admin: boolean;
   password: string;
 }
 
 export class CreateUserService {
-  async execute({ name, email, admin, password }: IUserRequest) {
+  async execute({ name, email, admin = false, password }: IUserRequest) {
     const usersRepositories = getCustomRepository(UsersRepositories);
 
     if (!email) throw new Error('Incorrect email!')

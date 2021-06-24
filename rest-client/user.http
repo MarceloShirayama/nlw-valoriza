@@ -2,12 +2,12 @@
 @path=users
 
 # User data
-@user_name=Marcelo
-@user_email=marcelo@teste.com
+@user_name=Maria
+@user_email=maria@teste.com
 @user_password=1234
 @user_admin=true
 
-### Create user
+### Create user admin
 POST {{url_base}}/{{path}}
 Content-Type: application/json
 
@@ -16,6 +16,16 @@ Content-Type: application/json
   "email": "{{user_email}}",
   "password": "{{user_password}}",
   "admin": {{user_admin}}
+}
+
+### Create user not admin
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "name": "{{user_name}}",
+  "email": "{{user_email}}",
+  "password": "{{user_password}}"
 }
 
 ### Create user with same email -> "error": "User already exists!"
