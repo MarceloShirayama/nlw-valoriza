@@ -1,0 +1,9 @@
+@url_base=http://localhost:3000
+@path=users/compliments/send
+
+# User data
+@bearer_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmNlbG9AdGVzdGUuY29tIiwiaWF0IjoxNjI0NjU1NzA1LCJleHAiOjE2MjQ3NDIxMDUsInN1YiI6IjFiODI4YzZmLWRlNmItNGQ0MS05ZWZhLWExYzM5YWE2MjdkZCJ9.1XrFNmTtXqEGCLdjnxTf7mhKUiA6H_LXuiWeAlaL8PE
+
+### list user send compliment
+GET {{url_base}}/{{path}}
+Authorization: Bearer {{bearer_token}}
