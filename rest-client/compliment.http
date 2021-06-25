@@ -3,18 +3,19 @@
 
 # User data
 @tag_id=a873e49d-7cbd-40b3-a162-62ec7fdf2154
-@user_sender=1b828c6f-de6b-4d41-9efa-a1c39aa627dd
-@user_receiver=6c477071-6911-480b-bc34-3409c5aa0f2b
+@user_sender=4ff1b82c-bb22-41e7-be4d-3a28d1a44009
+@user_receiver=e9c24bbb-8393-4dd7-ad75-093f65716770
 @message=Obrigado pela ajuda na comunidade :)
 @user_invalid=usuarionaovalidoounaoautenticado
+@bearer_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhQHRlc3RlLmNvbSIsImlhdCI6MTYyNDY1MDA4NiwiZXhwIjoxNjI0NzM2NDg2LCJzdWIiOiI0ZmYxYjgyYy1iYjIyLTQxZTctYmU0ZC0zYTI4ZDFhNDQwMDkifQ.lW9bgA4juZc1OOUIcuCCJ1pMULCp4vmKC8bDs_ERe4c
 
 ### Create compliment
 POST {{url_base}}/{{path}}
 Content-Type: application/json
+Authorization: Bearer {{bearer_token}}
 
 {
   "tag_id": "{{tag_id}}",
-  "user_sender": "{{user_sender}}",
   "user_receiver": "{{user_receiver}}",
   "message": "{{message}}"
 }
@@ -22,10 +23,10 @@ Content-Type: application/json
 ### register compliment for himself -> "error": "A user is not allowed to register a compliment for himself!"
 POST {{url_base}}/{{path}}
 Content-Type: application/json
+Authorization: Bearer {{bearer_token}}
 
 {
   "tag_id": "{{tag_id}}",
-  "user_sender": "{{user_sender}}",
   "user_receiver": "{{user_sender}}",
   "message": "{{message}}"
 }
@@ -33,10 +34,19 @@ Content-Type: application/json
 ### register compliment for invalid user -> "error": "User receiver do not exists!"
 POST {{url_base}}/{{path}}
 Content-Type: application/json
+Authorization: Bearer {{bearer_token}}
 
 {
   "tag_id": "{{tag_id}}",
-  "user_sender": "{{user_sender}}",
-  "user_receiver": "{{user_invalid}}",
+  "message": "{{message}}"
+}
+
+### register compliment for unauthenticated user -> "error": "Unauthorized"
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "tag_id": "{{tag_id}}",
+  "user_receiver": "{{user_receiver}}",
   "message": "{{message}}"
 }
