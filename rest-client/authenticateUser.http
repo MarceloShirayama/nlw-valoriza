@@ -1,15 +1,30 @@
 @url_base=http://localhost:3000
 @path=login
 
+### Login with admin user
 # User data
-@user_email=marcelo@teste.com
+@admin_user_email=marcelo@teste.com
 @user_password=1234
 
-### Generate token
+# Generate token
 POST {{url_base}}/{{path}}
 Content-Type: application/json
 
 {
-  "email": "{{user_email}}",
+  "email": "{{admin_user_email}}",
+  "password": "{{user_password}}"
+}
+
+
+### Login with not admin user
+# User data
+@not_admin_user_email=julia@teste.com
+
+# Generate token
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+
+{
+  "email": "{{not_admin_user_email}}",
   "password": "{{user_password}}"
 }

@@ -1,26 +1,32 @@
 @url_base=http://localhost:3000
 @path=tags
+@admin_bearer_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmNlbG9AdGVzdGUuY29tIiwiaWF0IjoxNjI0NjQ1NTUwLCJleHAiOjE2MjQ3MzE5NTAsInN1YiI6IjFiODI4YzZmLWRlNmItNGQ0MS05ZWZhLWExYzM5YWE2MjdkZCJ9.Jcad4q4mk3NZXhBp0n1Xek9sEzKinTxCKOT6xLjUKQc
+@not_admin_bearer_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGlhQHRlc3RlLmNvbSIsImlhdCI6MTYyNDY0NzI2NiwiZXhwIjoxNjI0NzMzNjY2LCJzdWIiOiJlOWMyNGJiYi04MzkzLTRkZDctYWQ3NS0wOTNmNjU3MTY3NzAifQ.17X8Kk5hhU3IGeaQ2DpAV-024nAyJQzvlbmeQV3lu9Q
+@name_tag=Liderança
 
-### Create tag
+### Create tag with user admin (if tag name exists: > "error": "Tag already exists!")
 POST {{url_base}}/{{path}}
 Content-Type: application/json
+Authorization: Bearer {{admin_bearer_token}}
 
 {
-  "name": "Inspiração"
-}
-
-### Create tag with same tag name -> "error": "Tag already exists!"
-POST {{url_base}}/{{path}}
-Content-Type: application/json
-
-{
-  "name": "Inspiração"
+  "name": "{{name_tag}}"
 }
 
 ### Create tag without tag name -> "error": "Incorrect tag name!"
 POST {{url_base}}/{{path}}
 Content-Type: application/json
+Authorization: Bearer {{admin_bearer_token}}
 
 {
 
+}
+
+### Create tag with user not admin
+POST {{url_base}}/{{path}}
+Content-Type: application/json
+Authorization: Bearer {{not_admin_bearer_token}}
+
+{
+  "name": "{{name_tag}}"
 }

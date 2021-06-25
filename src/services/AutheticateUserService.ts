@@ -27,7 +27,7 @@ export class AutheticateUserService {
         subject: user?.id,
         expiresIn: '1d'
       }
-    );
+      );
 
     return token;
   }
