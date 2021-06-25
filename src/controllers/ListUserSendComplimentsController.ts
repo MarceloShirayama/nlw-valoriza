@@ -7,8 +7,8 @@ export class ListUserSendComplimentsController {
 
     const listUserSendComplimentsService = new ListUserSendComplimentsService();
 
-    const list_compliments = await listUserSendComplimentsService.execute(user_id);
+    const compliments = await listUserSendComplimentsService.execute(user_id);
 
-    return response.json(list_compliments);
+    return response.json(compliments);
   }
 }
