@@ -1,3 +1,4 @@
 node_modules/
 codigos-desafio.txt
 *.sqlite
+.env

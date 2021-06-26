@@ -22,7 +22,7 @@ export class AutheticateUserService {
 
     const token = sign(
       { email: user?.email },
-      '254e19c7cb56a618f4c5d6a557191b59',
+      String(process.env.SECRET),
       {
         subject: user?.id,
         expiresIn: '1d'
